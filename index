@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XVII Conferencia MBA España · Ponentes confirmados</title>
+<meta name="description" content="Dossier de los 23 ponentes confirmados de la XVII Conferencia MBA España. Perfiles, trayectorias y temas de conversación.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brick: #9B3024;
+    --brick-dark: #6E1F18;
+    --brick-soft: #C14836;
+    --cream: #F5EFE6;
+    --cream-dark: #EADFCF;
+    --ink: #1C1917;
+    --ink-soft: #44403C;
+    --mute: #78716C;
+    --gold: #B08D57;
+    --shadow: 0 1px 3px rgba(28,25,23,0.06), 0 12px 40px -12px rgba(110,31,24,0.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 80px;
+  }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+/* Header */
+header {
+background:
+radial-gradient(ellipse at top right, rgba(176,141,87,0.15), transparent 60%),
+linear-gradient(180deg, var(–brick) 0%, var(–brick-dark) 100%);
+color: var(–cream);
+padding: 44px 22px 36px;
+position: relative;
+overflow: hidden;
+}
+header::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background-image: radial-gradient(circle at 1px 1px, rgba(245,239,230,0.08) 1px, transparent 0);
+background-size: 24px 24px;
+opacity: 0.4;
+pointer-events: none;
+}
+.eyebrow {
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+opacity: 0.85;
+margin-bottom: 16px;
+position: relative;
+}
+.eyebrow::before {
+content: ‘’;
+display: inline-block;
+width: 28px;
+height: 1px;
+background: var(–gold);
+vertical-align: middle;
+margin-right: 12px;
+margin-bottom: 3px;
+}
+h1 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(34px, 8vw, 52px);
+line-height: 1.05;
+font-weight: 600;
+letter-spacing: -0.01em;
+position: relative;
+}
+h1 em { color: var(–gold); font-style: italic; font-weight: 500; }
+.subtitle {
+margin-top: 14px;
+font-size: 15px;
+line-height: 1.5;
+opacity: 0.9;
+max-width: 560px;
+position: relative;
+}
+.stats {
+margin-top: 22px;
+display: flex;
+gap: 28px;
+font-size: 12px;
+font-weight: 500;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+opacity: 0.85;
+position: relative;
+}
+.stats span { display: flex; align-items: center; gap: 6px; }
+.stats strong { color: var(–gold); font-weight: 700; font-size: 14px; }
+
+/* Controls */
+.controls {
+background: var(–cream);
+position: sticky;
+top: 0;
+z-index: 10;
+padding: 16px 22px 12px;
+border-bottom: 1px solid var(–cream-dark);
+margin-bottom: 4px;
+}
+.search {
+position: relative;
+margin-bottom: 10px;
+}
+.search input {
+width: 100%;
+padding: 12px 14px 12px 40px;
+border: 1px solid var(–cream-dark);
+background: white;
+border-radius: 10px;
+font-family: inherit;
+font-size: 15px;
+color: var(–ink);
+transition: all 0.2s;
+}
+.search input:focus {
+outline: none;
+border-color: var(–brick);
+box-shadow: 0 0 0 3px rgba(155,48,36,0.1);
+}
+.search::before {
+content: ‘’;
+position: absolute;
+left: 14px;
+top: 50%;
+transform: translateY(-50%);
+width: 16px;
+height: 16px;
+background-image: url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ viewBox=‘0 0 24 24’ fill=‘none’ stroke=’%2378716C’ stroke-width=‘2.5’ stroke-linecap=‘round’%3E%3Ccircle cx=‘11’ cy=‘11’ r=‘7’/%3E%3Cline x1=‘21’ y1=‘21’ x2=‘16.5’ y2=‘16.5’/%3E%3C/svg%3E”);
+background-repeat: no-repeat;
+opacity: 0.7;
+}
+.filters {
+display: flex;
+gap: 6px;
+overflow-x: auto;
+padding-bottom: 4px;
+scrollbar-width: none;
+}
+.filters::-webkit-scrollbar { display: none; }
+.filter-btn {
+flex-shrink: 0;
+padding: 7px 13px;
+background: white;
+border: 1px solid var(–cream-dark);
+border-radius: 20px;
+font-family: inherit;
+font-size: 12.5px;
+font-weight: 500;
+color: var(–ink-soft);
+cursor: pointer;
+transition: all 0.15s;
+white-space: nowrap;
+}
+.filter-btn:hover { border-color: var(–brick-soft); color: var(–brick); }
+.filter-btn.active {
+background: var(–ink);
+color: var(–cream);
+border-color: var(–ink);
+}
+
+/* Grid */
+.grid {
+padding: 16px;
+display: flex;
+flex-direction: column;
+gap: 14px;
+}
+@media (min-width: 720px) {
+.grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 20px;
+padding: 24px;
+max-width: 1200px;
+margin: 0 auto;
+}
+}
+@media (min-width: 1080px) {
+.grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Card */
+.card {
+background: white;
+border-radius: 14px;
+box-shadow: var(–shadow);
+overflow: hidden;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+border: 1px solid rgba(234,223,207,0.8);
+}
+.card.hidden { display: none; }
+.card-header {
+padding: 18px 20px 14px;
+cursor: pointer;
+display: flex;
+gap: 14px;
+align-items: flex-start;
+position: relative;
+}
+.card-header::after {
+content: ‘’;
+position: absolute;
+right: 18px;
+top: 24px;
+width: 8px;
+height: 8px;
+border-right: 1.5px solid var(–mute);
+border-bottom: 1.5px solid var(–mute);
+transform: rotate(45deg);
+transition: transform 0.3s;
+}
+.card.open .card-header::after {
+transform: rotate(-135deg);
+margin-top: 4px;
+}
+.avatar {
+flex-shrink: 0;
+width: 52px;
+height: 52px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(–brick) 0%, var(–brick-soft) 100%);
+color: var(–cream);
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: ‘Cormorant Garamond’, serif;
+font-weight: 600;
+font-size: 20px;
+letter-spacing: -0.02em;
+box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.card:nth-child(3n+2) .avatar { background: linear-gradient(135deg, #3F3A37 0%, #5C524C 100%); }
+.card:nth-child(3n+3) .avatar { background: linear-gradient(135deg, #7A5C3E 0%, var(–gold) 100%); }
+.card:nth-child(5n+4) .avatar { background: linear-gradient(135deg, #4A5240 0%, #6B7558 100%); }
+.card-title {
+flex: 1;
+min-width: 0;
+padding-right: 20px;
+}
+.name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 22px;
+font-weight: 600;
+line-height: 1.1;
+color: var(–ink);
+letter-spacing: -0.01em;
+margin-bottom: 4px;
+}
+.role {
+font-size: 13px;
+color: var(–ink-soft);
+line-height: 1.35;
+font-weight: 500;
+}
+.role .company {
+color: var(–brick);
+font-weight: 600;
+}
+.tag {
+display: inline-block;
+margin-top: 10px;
+padding: 3px 9px;
+background: var(–cream);
+border-radius: 4px;
+font-size: 10.5px;
+font-weight: 600;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+color: var(–ink-soft);
+}
+
+/* Details */
+.details {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card.open .details { max-height: 3000px; }
+.details-inner {
+padding: 4px 20px 22px;
+border-top: 1px dashed var(–cream-dark);
+margin: 0 20px;
+padding-left: 0;
+padding-right: 0;
+padding-top: 18px;
+margin-top: 4px;
+}
+.section {
+margin-bottom: 18px;
+}
+.section:last-child { margin-bottom: 0; }
+.section-label {
+font-size: 10.5px;
+font-weight: 700;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–brick);
+margin-bottom: 8px;
+}
+.section p {
+font-size: 14px;
+line-height: 1.6;
+color: var(–ink-soft);
+}
+.section p + p { margin-top: 8px; }
+.facts {
+background: var(–cream);
+border-radius: 10px;
+padding: 14px 16px;
+display: grid;
+gap: 8px;
+}
+.fact {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+font-size: 13px;
+gap: 12px;
+}
+.fact-label {
+color: var(–mute);
+font-weight: 500;
+flex-shrink: 0;
+}
+.fact-value {
+color: var(–ink);
+font-weight: 600;
+text-align: right;
+}
+.hooks {
+list-style: none;
+padding: 0;
+display: grid;
+gap: 10px;
+}
+.hooks li {
+font-size: 14px;
+line-height: 1.55;
+color: var(–ink-soft);
+padding-left: 22px;
+position: relative;
+}
+.hooks li::before {
+content: ‘’;
+position: absolute;
+left: 0;
+top: 9px;
+width: 12px;
+height: 2px;
+background: var(–gold);
+}
+.hooks strong {
+color: var(–ink);
+font-weight: 600;
+}
+
+/* Share bar */
+.share-bar {
+position: fixed;
+bottom: 16px;
+left: 50%;
+transform: translateX(-50%);
+background: var(–ink);
+color: var(–cream);
+padding: 10px 18px;
+border-radius: 999px;
+font-size: 13px;
+font-weight: 500;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 8px;
+box-shadow: 0 12px 32px -4px rgba(28,25,23,0.4);
+transition: all 0.2s;
+z-index: 20;
+border: none;
+font-family: inherit;
+}
+.share-bar:hover { background: var(–brick); }
+.share-bar svg { width: 15px; height: 15px; }
+
+/* Empty state */
+.empty {
+text-align: center;
+padding: 60px 20px;
+color: var(–mute);
+font-size: 14px;
+grid-column: 1/-1;
+display: none;
+}
+.empty.show { display: block; }
+
+footer {
+text-align: center;
+padding: 28px 20px 20px;
+font-size: 12px;
+color: var(–mute);
+border-top: 1px solid var(–cream-dark);
+margin-top: 20px;
+}
+footer .serif { font-size: 15px; color: var(–ink-soft); margin-bottom: 4px; font-style: italic; }
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">XVII Conferencia MBA España · Nueva York</div>
+  <h1>Los 23 ponentes,<br><em>en dossier.</em></h1>
+  <p class="subtitle">Perfiles, trayectorias y conversaciones de contexto para preparar el encuentro. Toca cada ficha para desplegar.</p>
+  <div class="stats">
+    <span><strong>23</strong> ponentes</span>
+    <span><strong>9</strong> sectores</span>
+    <span><strong>XVII</strong> edición</span>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="Buscar por nombre, empresa o sector…" autocomplete="off">
+  </div>
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="alimentacion">Alimentación</button>
+    <button class="filter-btn" data-filter="salud">Salud &amp; Farma</button>
+    <button class="filter-btn" data-filter="energia">Energía</button>
+    <button class="filter-btn" data-filter="finanzas">Finanzas &amp; PE</button>
+    <button class="filter-btn" data-filter="tecnologia">Tecnología &amp; IA</button>
+    <button class="filter-btn" data-filter="turismo">Turismo &amp; Aviación</button>
+    <button class="filter-btn" data-filter="consultoria">Consultoría</button>
+    <button class="filter-btn" data-filter="inmobiliario">Inmobiliario</button>
+    <button class="filter-btn" data-filter="academia">Academia</button>
+  </div>
+</div>
+
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty">No hay ponentes que coincidan con esa búsqueda.</div>
+
+<footer>
+  <div class="serif">Dossier de referencia para asistentes a la XVII Conferencia MBA España.</div>
+  <div>Información recopilada de fuentes públicas · Abril 2026</div>
+</footer>
+
+<button class="share-bar" id="shareBtn">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+  <span id="shareText">Compartir</span>
+</button>
+
+<script>
+const speakers = [
+  {
+    id: 1, nombre: "Demetrio Carceller Arce", cargo: "Presidente Ejecutivo",
+    empresa: "Damm", sector: ["alimentacion"], etiqueta: "Alimentación · Familia",
+    iniciales: "DC",
+    formacion: "Licenciado en ICADE (Madrid) y MBA por Duke University. Empezó en Santander de Negocios y McKinsey & Company antes de pasar a la empresa familiar.",
+    trayectoria: "Tercera generación de una dinastía empresarial española. En 1994 asumió la presidencia ejecutiva de Damm; en 1998 la de Disa (petrolera canaria, +600 gasolineras). Es vicepresidente de Ebro Foods y Sacyr, y consejero de Freixenet. Presidió Cerveceros de España (2019-2023). En 2024 recibió el Premio Forbes Best CEO.",
+    empresaDesc: "Damm es una cervecera centenaria (fundada en 1876) con marcas como Estrella Damm, Voll-Damm y Turia. Bajo su mandato ha multiplicado por diez la facturación: de ~200M€ a más de 2.000M€ en 2023, con presencia en +130 países. Su cuota nacional pasó del 10% al 20% en una década.",
+    datos: [["Facturación 2023", "+2.000M€"],["Países", "+130"],["Al frente desde", "1994"],["Patrimonio familiar (Forbes)", "+1.000M€"]],
+    hooks: [
+      "<strong>Barcelona &amp; Messi</strong>: habla abiertamente de fichar talento \"desde las canteras\" y usa al Barça como referencia cultural de Damm pese a ser madridista.",
+      "<strong>Las tres Q</strong>: busca siempre IQ (inteligencia), EQ (emocional) y DQ (decencia). La decencia es su filtro personal antes de invertir en cualquier negocio.",
+      "<strong>Internacionalización</strong>: para él fue el mayor reto de su carrera. Buen terreno si quieres hablar de expansión fuera de España.",
+      "<strong>Cuidado con el pasado judicial</strong>: tuvo una causa fiscal que se cerró con acuerdo en 2016. No es tema de mesa."
+    ]
+  },
+  {
+    id: 2, nombre: "Víctor Madera", cargo: "Presidente / CEO",
+    empresa: "Quirónsalud", sector: ["salud"], etiqueta: "Sanidad privada · Asturias",
+    iniciales: "VM",
+    formacion: "Médico especializado en medicina deportiva, formado en Estados Unidos. Primera promoción del Máster en Dirección de Instituciones Sanitarias de la Escuela Nacional de Sanidad.",
+    trayectoria: "Ovetense (1962). Empezó gestionando una clínica de Cruz Roja en Asturias; a los 31 años ya dirigía el Hospital María Cristina de San Sebastián. Fundó IDC en los 90, la fusionó con Quirón en 2014 y en 2016 vendió el grupo al alemán Fresenius por 5.760M€ — la mayor operación hospitalaria privada de España. Volvió como CEO a finales de 2022. Recientemente se ha aliado de nuevo con CVC para entrar en el grupo griego Hellenic Healthcare.",
+    empresaDesc: "Quirónsalud es el mayor grupo hospitalario privado de España: +300 centros, +31.700 empleados, propiedad de Fresenius-Helios. Incluye Fundación Jiménez Díaz, Ruber, Dexeus y Teknon.",
+    datos: [["Venta a Fresenius", "5.760M€"],["Centros", "+300"],["Empleados", "+31.700"],["Patrimonio (El Mundo)", "~730M€"]],
+    hooks: [
+      "<strong>Perfil bajo extremo</strong>: odia salir en fotos. \"No soy futbolista ni actor de cine\". Agradece que no se le trate como una cifra.",
+      "<strong>Patrimonio histórico</strong>: colecciona palacios en ruinas para restaurarlos — Asturias, Galicia, Baleares, Madrid. Última adquisición: Palacio de Celles (Siero). \"A otros les gusta comprar barcos\".",
+      "<strong>África</strong>: impulsa la Fundación Recover para sanidad sostenible en África; buen tema serio y poco comentado.",
+      "<strong>Prevención</strong>: cree que la sostenibilidad del sistema público español pasa por la prevención, no por más gasto."
+    ]
+  },
+  {
+    id: 3, nombre: "Álvaro Muñoz Beraza", cargo: "Group CEO",
+    empresa: "AM Fresh Group", sector: ["alimentacion"], etiqueta: "Agroalimentación · Murcia",
+    iniciales: "ÁM",
+    formacion: "ICADE (Económicas y ADE, 1989), MBA de Stanford Graduate School of Business (1996). Pasó por McKinsey antes de volver al negocio familiar en 1997.",
+    trayectoria: "Lidera la tercera generación del Grupo AMC (Murcia, fundado en 1931). Transformó una empresa de distribución española en un operador global con presencia en +60 países. En 2019 pactó con Paine Schwartz; en 2023 fusionó SNFL con International Fruit Genetics para crear Bloom Fresh, con inversión de EQT Future — plataforma líder mundial en genética de uva de mesa.",
+    empresaDesc: "AM Fresh es líder mundial en fruta fresca, zumos naturales y plant-based. +5.700 empleados, facturación superior a 1.000M€. Contratos exclusivos a largo plazo con Tesco, Marks &amp; Spencer y Coop UK en cítricos, uva y flores. Vertical integration de la finca al retail.",
+    datos: [["Fundación Grupo", "1931"],["Empleados", "+5.700"],["Países", "+60"],["Facturación", ">1.000M€"]],
+    hooks: [
+      "<strong>Son tres hermanos empresarios</strong>: Álvaro dirige AM Fresh, Antonio dirige AMC Natural Drinks, y Carlos Muñoz (también en el panel) es fundador de Vueling y Volotea.",
+      "<strong>Las tres C</strong>: confianza (trust), conveniencia (convenience) y conciencia (awareness). Es su marco mental para entender al consumidor moderno.",
+      "<strong>Asia</strong>: es el pilar de su expansión futura. Compró una empresa en Australia vía COFIDES para entrar en el mercado asiático.",
+      "<strong>FRESCO</strong>: su programa propio de neurociencia y big data aplicado al consumidor de fruta fresca — pionero en el sector."
+    ]
+  },
+  {
+    id: 4, nombre: "Carlos Muñoz Beraza", cargo: "Fundador y CEO de Volotea · Fundador de Vueling",
+    empresa: "Volotea", sector: ["turismo"], etiqueta: "Aviación · Serial founder",
+    iniciales: "CM",
+    formacion: "ICADE (Madrid), MBA por Harvard Business School. Pasó por la empresa familiar (AMC) y luego por McKinsey antes de emprender.",
+    trayectoria: "Murciano (1969). En 2002 fundó Vueling con Lázaro Ros; la sacó a bolsa en 2006 y Iberia la absorbió en 2009 — hoy es una de las mayores low-cost de Europa. En 2011, de nuevo con Ros, lanzó Volotea, especializada en conectar ciudades europeas medianas (Nantes, Burdeos, Verona, Palermo…). Ha transportado +55M de pasajeros.",
+    empresaDesc: "Volotea opera en 21 ciudades-base de Francia, Italia, España, Grecia y Alemania. Flota 100% Airbus (A319 y A320, ~44 aviones). Ingresos previstos 2024: 810-830M€ (crecimiento ~85-90% vs 2019). Plantilla de +2.000 personas.",
+    datos: [["Pasajeros acumulados", "+55M"],["Rutas", "450"],["Vuelos 2024", "~80.000"],["Bases operativas", "21 ciudades"]],
+    hooks: [
+      "<strong>Hermano de Álvaro Muñoz</strong>: también está en el panel (CEO de AM Fresh). Conexión familiar fuerte y negocio compartido en los orígenes.",
+      "<strong>\"El low cost mal atendido\"</strong>: su tesis con Volotea es que 2/3 de los europeos viven en ciudades medianas o entornos rurales sin vuelos directos.",
+      "<strong>Emprender</strong>: dice que fue \"la decisión más importante de mi vida profesional\". Le apasiona hablar de ello.",
+      "<strong>Boeing 717</strong>: Volotea empezó con uno de los aviones más raros del mundo (solo 156 construidos) antes de virar al Airbus."
+    ]
+  },
+  {
+    id: 5, nombre: "Iñaki Cobo Bachiller", cargo: "Socio y Responsable de Iberia",
+    empresa: "KKR", sector: ["finanzas"], etiqueta: "Private Equity · Madrid",
+    iniciales: "IC",
+    formacion: "Madrileño. Casi 20 años en CVC Capital Partners (Madrid y Londres) antes de fichar por KKR en 2018.",
+    trayectoria: "Es la cara de KKR en la Península Ibérica. Dirige el private equity en España y, previamente, lideró el área de salud de la firma en EMEA. Forma parte del European Private Equity Investment Committee y del European Portfolio Management Committee. KKR ha invertido +4.700M$ en España desde 2010.",
+    empresaDesc: "KKR es uno de los mayores fondos de private equity del mundo. Su área europea de private equity ha invertido ~20.000M€ en +55 grandes compañías del continente.",
+    datos: [["En KKR desde", "2018"],["Inversión KKR España", "+4.700M$"],["En CVC antes", "~20 años"],["Inversión PE KKR Europa", "~20.000M€"]],
+    hooks: [
+      "<strong>Puntos calientes actuales</strong>: está en los consejos de MasOrange (ex-MasMóvil), IVI-RMA, Karo Healthcare, Elsan, Grupo Alvic, Davante e Ignis P2X. Cualquiera de ellos es tema fuerte.",
+      "<strong>IVI ↔ Javier Sánchez-Prieto</strong>: KKR compró IVI por 3.000M€ en 2023 y fichó a Sánchez-Prieto (también en el panel) como CEO. Conexión muy reciente.",
+      "<strong>Salud</strong>: es su especialidad desde CVC. Si tienes algo relacionado con healthcare, pregunta por su tesis del sector.",
+      "<strong>MasOrange</strong>: la fusión MasMóvil-Orange fue una de las operaciones más grandes de España en 2024. Está en el consejo."
+    ]
+  },
+  {
+    id: 6, nombre: "José Vicente de los Mozos", cargo: "CEO",
+    empresa: "Indra Group", sector: ["tecnologia"], etiqueta: "Defensa &amp; Tech · IFEMA",
+    iniciales: "JM",
+    formacion: "Ingeniero Aeronáutico por la UPM, Máster en Técnicas de Producción (CESEM), Executive Program en Stanford (SEP).",
+    trayectoria: "Nacido en São Paulo en 1962. +35 años en el sector del automóvil, la mayoría en Renault, donde fue director global de Fabricación y Logística, miembro del Comité Ejecutivo del Grupo Renault y presidente del consejo de Renault España. Dejó Renault en enero de 2023 y desde mayo de 2023 es CEO de Indra. Es también presidente no ejecutivo de IFEMA desde 2020.",
+    empresaDesc: "Indra es la multinacional española de tecnología y defensa — ingeniería, defensa (programa FCAS con Francia y Alemania), transporte y TI a través de Minsait. Recientemente firmó un contrato con Transport for London para gestionar ticketing y control de acceso de +8,6M de viajes diarios.",
+    datos: [["CEO Indra desde", "Mayo 2023"],["Presidente IFEMA", "Desde 2020"],["Presidente nuevo", "Ángel Simón (2026)"],["Distinciones", "Gran Cruz Isabel la Católica"]],
+    hooks: [
+      "<strong>FCAS</strong>: Indra coordina la participación industrial española en el mayor programa de defensa aérea europeo. Política y empresa al máximo nivel.",
+      "<strong>Transport for London</strong>: acaba de cerrar el contrato gigante de ticketing. Muy fresco.",
+      "<strong>Ángel Simón</strong>: acaba de entrar como nuevo presidente no ejecutivo (hace semanas). El giro reciente en el Consejo es actualidad.",
+      "<strong>Ángel industrial</strong>: buen tema de conversación sobre la transformación del sector de automoción en España y el papel de Renault."
+    ]
+  },
+  {
+    id: 7, nombre: "Pilar Manchón, PhD", cargo: "Sr. Director, Ingeniería &amp; IA Research Strategy",
+    empresa: "Google / DeepMind", sector: ["tecnologia"], etiqueta: "IA · Sevilla → Bay Area",
+    iniciales: "PM",
+    formacion: "MSc en Ciencia Cognitiva y Lenguaje Natural, Máster en Internacionalización y Doctorado en Sistemas Conversacionales Multimodales. Research fellow en Stanford y en SRI International. Singularity University (2012).",
+    trayectoria: "Sevillana. +25 años en IA. Fundó Indisys en Sevilla (conversational AI) y la vendió. Después: Senior Director de Asistencia Digital Inteligente en Intel, Directora de Cognitive Interfaces en Amazon (Alexa), VP de Conversational AI en Roku. Desde 2019 es Senior Director of Engineering for AI Research Strategy en Google. Trabaja directamente en Google DeepMind.",
+    empresaDesc: "Dirige la estrategia global de investigación en IA de Google, con foco en IA responsable y ética. También es consejera en Eventbrite (NYSE: EB) desde 2023, y asesora del Consejo de Estrategia Nacional de IA en España.",
+    datos: [["En Google desde", "2019"],["Consejos", "Eventbrite, Universal Diagnostics"],["Top 100 Hispanic Tech US", "Cuatro años"],["Base", "San Francisco Bay Area"]],
+    hooks: [
+      "<strong>Andalucía</strong>: Hija Predilecta de Andalucía, Premio Honorario de la Universidad de Sevilla. La conexión con Sevilla es muy personal.",
+      "<strong>Ecosistema IA competidor</strong>: compartió escenario en el Fortune Most Powerful Women con Daniela Amodei (Anthropic) y Lila Ibrahim (DeepMind). Voz respetada en el debate de gobernanza de IA.",
+      "<strong>Pragmatismo</strong>: su filosofía pública es \"once you understand something, you lose the fear\". Le interesa la aplicación concreta de la IA.",
+      "<strong>Valencia</strong>: apoyó el proyecto Google Cloud + Marina de Empresas para hacer Valencia hub de IA. Tema tangible de España."
+    ]
+  },
+  {
+    id: 8, nombre: "Javier Dueñas", cargo: "CEO",
+    empresa: "Campofrío España", sector: ["alimentacion"], etiqueta: "Cárnicos · Burgos",
+    iniciales: "JD",
+    formacion: "Licenciado en Empresariales. MBA por Deusto, postgrados en IESE, Instituto San Telmo, London Business School (Finanzas Corporativas) y Stanford (Dirección Ejecutiva).",
+    trayectoria: "Burgalés. +25 años en Campofrío: fue director financiero para el sur de Europa y EE.UU., y desde 2015 dirigió Campofrío Frescos. CEO desde febrero de 2021. Vicepresidente de ANICE (Asociación de Industrias de la Carne de España) y presidente de F4F - Expo Foodtech. Premio Mejor Directivo de Castilla y León 2023.",
+    empresaDesc: "Campofrío pertenece a Sigma, multinacional alimentaria mexicana. Facturó ~978M€ en 2021 con 2.200 empleados. Tres fábricas en Castilla y León desde 1952.",
+    datos: [["CEO desde", "Feb 2021"],["Facturación (2021)", "~978M€"],["Empleados", "2.200"],["Matriz", "Sigma (México)"]],
+    hooks: [
+      "<strong>Geoestrategia alimentaria</strong>: su tesis es que el sector necesita digitalizar toda la cadena de valor, \"desde la granja hasta la mesa\", para responder al crecimiento demográfico.",
+      "<strong>Diversidad</strong>: firmó la adhesión a #CEOporLaDiversidad en 2022. Tema que defiende en foros.",
+      "<strong>Foodtech</strong>: como presidente de F4F - Expo Foodtech, es una voz de referencia en la intersección entre alimentación y tecnología.",
+      "<strong>Incendio de la fábrica de Burgos (2014)</strong>: evento emblemático de la empresa. Se reconstruyó. Marca su identidad, pero no tema de apertura."
+    ]
+  },
+  {
+    id: 9, nombre: "Enrique Zaragoza", cargo: "President &amp; CEO",
+    empresa: "Riviana Foods (Ebro Foods)", sector: ["alimentacion"], etiqueta: "Arroz · Houston",
+    iniciales: "EZ",
+    formacion: "Universidad Pontificia Comillas (MSc), UNED (MA). Executive MBA por Rice University - Jesse H. Jones Graduate School of Management (2006-2008).",
+    trayectoria: "Base en Houston, Texas. Carrera larga en Ebro Foods a través de Riviana; antes pasó por BBVA USA, Socios Financieros e ICEX. Actualmente preside Riviana, la filial americana del grupo Ebro Foods — es la mayor arrocera de EE.UU.",
+    empresaDesc: "Riviana Foods tiene 100+ años (fundada en 1911). Lidera el mercado del arroz en EE.UU. y es el mayor comercializador mundial de arroz salvaje. Marcas: Minute, Success, Mahatma, Carolina, Adolphus, RiceSelect, Tilda y Gourmet House. Filial de Ebro Foods (España), líder mundial en arroz. En 2024 invirtió 80,6M$ en expandir la planta de Memphis.",
+    datos: [["Fundada", "1911"],["Matriz", "Ebro Foods (España)"],["Sede", "Houston, Texas"],["Inversión Memphis", "80,6M$"]],
+    hooks: [
+      "<strong>Conexión España-EE.UU.</strong>: caso destacado de directivo español liderando una empresa americana centenaria desde Houston.",
+      "<strong>InHarvest (2023)</strong>: compró la empresa por 48,75M$ para reforzar su posición en arroz, quinoa y granos especiales.",
+      "<strong>Ready-to-serve</strong>: su segmento más rápido; creció casi 19% en volumen en 2023.",
+      "<strong>Demetrio Carceller</strong> también está en el panel y es vicepresidente de Ebro Foods — la empresa matriz de Riviana. Puedes conectar."
+    ]
+  },
+  {
+    id: 10, nombre: "Ramón Baeza Fraile", cargo: "Senior Managing Director",
+    empresa: "FTI Consulting (ex-BCG)", sector: ["consultoria", "energia"], etiqueta: "Consultoría · Energía · Madrid",
+    iniciales: "RB",
+    formacion: "INSEAD. 33+ años en BCG antes de fichar por FTI Consulting en septiembre de 2024.",
+    trayectoria: "33 años en Boston Consulting Group, donde fue Managing Director y Senior Partner. Lideró BCG Iberia (España + Portugal) entre 2009 y 2016, y posteriormente el negocio global Disruption and Reinvention. En septiembre de 2024 fichó por FTI Consulting como Senior Managing Director — responsable de Business Transformation en España y del sector Energía para toda EMEA.",
+    empresaDesc: "FTI Consulting: firma global independiente de asesoramiento (~8.000 empleados, 34 países). Especializada en gestión del cambio, reestructuraciones y resolución de conflictos.",
+    datos: [["Experiencia", "33+ años"],["En BCG", "1992-2024"],["Consejos", "Fides Capital, Fundación CODESPA, DADORIS"],["Oficinas", "Madrid, París, Bruselas, Lisboa"]],
+    hooks: [
+      "<strong>Turnarounds</strong>: es su especialidad pura. Empresas en reestructuración o transformación dura.",
+      "<strong>Transición energética</strong>: desde FTI lidera la transformación de clientes hacia energías sostenibles a nivel EMEA.",
+      "<strong>Fundación CODESPA</strong>: está en el consejo. ONG que trabaja en desarrollo económico en países emergentes — lado social poco comentado.",
+      "<strong>Rafael Mateo</strong> (ex-CEO de Acciona Energía) está también en el panel: ambos operan en el mundo de la energía con visiones complementarias."
+    ]
+  },
+  {
+    id: 11, nombre: "Pablo Álvarez Mezquiriz", cargo: "Consejero Delegado",
+    empresa: "Tempos Vega Sicilia", sector: ["alimentacion"], etiqueta: "Vino · Ribera del Duero",
+    iniciales: "PÁ",
+    formacion: "Licenciado en Derecho por el CEU Madrid, Diploma en Asesoría Jurídica por el Madrid Business Institute. Pasó por Eulen (empresa familiar) como Director de 1980 a 2009.",
+    trayectoria: "Bilbao, 1954. Su familia compró Vega Sicilia en 1982. Lleva 40+ años al frente de la bodega. Ha construido un grupo de 5 bodegas: Vega Sicilia (Ribera del Duero), Alión (Ribera), Pintia (Toro), Macán (Rioja, joint venture con Rothschild) y Oremus (Tokaj, Hungría). Compra una 6ª en Rías Baixas — Deiva, con inversión de 20M€, para hacer un vino blanco que compita con los grandes borgoñas.",
+    empresaDesc: "Tempos Vega Sicilia es el \"Primer Grand Cru\" de España. Propiedad de El Enebro (holding familiar Álvarez). 650 ha de viñedo, 6 bodegas. Único 2012 es su vino estrella. Wine Spectator lo considera la bodega más icónica de España.",
+    datos: [["Al frente desde", "1985"],["Bodegas en el grupo", "6"],["Viñedo", "~650 ha"],["Inversión Deiva (Galicia)", "20M€"]],
+    hooks: [
+      "<strong>Jubilación a los 70</strong>: prometió retirarse a esa edad. Cumple 70 en 2024. Puede ser su última conferencia MBA como CEO — vale la pena preguntárselo.",
+      "<strong>Deiva (Galicia)</strong>: su gran proyecto actual. Primer lote de albariño sale al mercado en 2027. Le apasiona.",
+      "<strong>Retirada del 94 Valbuena</strong>: retiró toda la añada 1994 por un problema de corchos — 3M$ de coste. Luego plantó 50.000 alcornoques. Obsesión por la calidad.",
+      "<strong>Saint-Émilion</strong>: estuvo a punto de comprar Clos Fourtet hace 15 años. Le ganaron la puja. Sigue queriendo Borgoña, Bordeaux, Rhône o Napa."
+    ]
+  },
+  {
+    id: 12, nombre: "Gonzalo Santos", cargo: "Socio y Managing Director",
+    empresa: "Advent International", sector: ["finanzas"], etiqueta: "Private Equity · Madrid",
+    iniciales: "GS",
+    formacion: "Doble grado (E3) en Derecho y ADE por ICADE (1996-2002). Colegiado del Colegio de Abogados de Madrid.",
+    trayectoria: "Empezó en Uría Menéndez (Derecho Mercantil). 4 años en Goldman Sachs (banca de inversión, Londres). 9 años en TPG / Sixth Street (Londres), responsable de la cobertura española en Private Equity y Special Situations. Se unió a Advent International en 2015 en Madrid.",
+    empresaDesc: "Advent International es uno de los mayores PE globales (fundado en 1984). Su oficina de Madrid invierte en business &amp; financial services, consumer y healthcare. Gonzalo ha asesorado 8 inversiones en su carrera, 2 en Advent. Actualmente es consejero de Grupo Vitaldent (Donte Group).",
+    datos: [["En Advent desde", "2015"],["Antes", "TPG (9 años), Goldman (4 años)"],["Sectores", "Business services, Consumer, Healthcare"],["Inversiones asesoradas", "8"]],
+    hooks: [
+      "<strong>Sourcing disciplinado</strong>: su filosofía — Advent se limita a 5 sectores core donde llevan 40 años. Profundidad &gt; amplitud.",
+      "<strong>Feedback semanal</strong>: tiene un sistema interno en el que revisa carrera y desarrollo con cada miembro del equipo. Gestión muy humana.",
+      "<strong>Iñaki Cobo (KKR)</strong> también está en el panel — competidores directos del mismo segmento PE en España. Ambos son de ICADE.",
+      "<strong>Vitaldent</strong>: es su consejo más mediático ahora. Tema útil sobre inversión en salud dental privada."
+    ]
+  },
+  {
+    id: 13, nombre: "Rafael Mateo Alcalá", cargo: "Ex-CEO (Consejero externo)",
+    empresa: "Acciona Energía", sector: ["energia"], etiqueta: "Renovables · Aragón",
+    iniciales: "RM",
+    formacion: "Ingeniero Industrial por la Universidad de Zaragoza (Premio Extraordinario, 1982). PDG del IESE (1987), PADE de INSEAD (1995).",
+    trayectoria: "Aragonés de Alcañiz (Teruel), 66 años. Carrera en Endesa de 1982 a 2009: empezó en la Central Térmica de Andorra, acabó como CEO de Endesa Chile y director general de generación para toda Latinoamérica. Entró en Acciona en 2010 como director general de Energía, fue CEO de Acciona Energía desde 2013 hasta junio de 2025, cuando le sucedió Arantza Ezpeleta. Sigue como consejero externo.",
+    empresaDesc: "Acciona Energía cerró 2024 con ingresos de 3.048M€, EBITDA de 1.050M€ y beneficio neto atribuible de 357M€. En 2024 añadió 2GW de nueva capacidad renovable — récord histórico de la compañía. Cotiza en el Ibex.",
+    datos: [["Años al frente", "12 (2013-2025)"],["Ingresos 2024", "3.048M€"],["EBITDA 2024", "1.050M€"],["Nueva capacidad 2024", "2GW"]],
+    hooks: [
+      "<strong>Acaba de dejar el cargo</strong>: salió en junio de 2025 tras 15 años en Acciona. Momento reflexivo — buen terreno para preguntar por su próximo capítulo.",
+      "<strong>Latam</strong>: 10 años en Chile. Si quieres hablar de mercados energéticos latinoamericanos, es la persona.",
+      "<strong>\"Energía como servicio\"</strong>: su tesis reciente — modelo integrado, no producto tradicional. Diferenciador estratégico.",
+      "<strong>WEF</strong>: miembro del CEO's Electricity Group del World Economic Forum."
+    ]
+  },
+  {
+    id: 14, nombre: "Belén Linares Corell", cargo: "Directora de I+D+i",
+    empresa: "Moeve (ex-Cepsa)", sector: ["energia"], etiqueta: "Transición energética · Mujer STEM",
+    iniciales: "BL",
+    formacion: "Ingeniera Aeroespacial. Postgrados en Sistemas Eléctricos (UPM), Máster en Alta Dirección para Ejecutivas, Advanced Management Program en ESADE y Global Growth Strategy Program en Wharton. Fellow del Aspen Institute.",
+    trayectoria: "23+ años en los sectores energético y aeroespacial. Empezó en Airbus, pasó a Siemens-Gamesa (Directora de Tecnología y Desarrollo de Productos en Energía Eólica), y desde 2016 dirigió la innovación en Acciona Energía. En febrero de 2024 fichó por Cepsa (ahora Moeve) como directora de I+D+i. Consejera independiente de Mutua de Propietarios.",
+    empresaDesc: "Moeve es el nuevo nombre de Cepsa desde 2024. Su plan estratégico \"Positive Motion\" (2030) apunta a liderar movilidad sostenible, biocombustibles e hidrógeno verde en España y Portugal. Acaba de unirse a la Global Impact Coalition para e-SAF y químicos bajos en carbono.",
+    datos: [["En Moeve/Cepsa desde", "Feb 2024"],["Experiencia", "23+ años"],["Board member", "Mutua de Propietarios"],["Antes en", "Acciona, Siemens-Gamesa, Airbus"]],
+    hooks: [
+      "<strong>De Cepsa a Moeve</strong>: está en primera línea del rebranding y la transformación estratégica. Pregúntale por qué el cambio de nombre.",
+      "<strong>Hidrógeno electrolítico</strong>: su foco técnico principal. Tecnología de futuro donde Moeve quiere liderar.",
+      "<strong>EJECON</strong>: fue vicepresidenta (2017-2023) de la Asociación de Ejecutivas y Consejeras de España. Defensora visible de la diversidad en liderazgo.",
+      "<strong>CERAWeek 2026</strong>: acaba de confirmar asistencia en LinkedIn. Tema en el radar."
+    ]
+  },
+  {
+    id: 15, nombre: "Javier Sánchez-Prieto", cargo: "CEO",
+    empresa: "IVIRMA Global (ex-CEO Iberia)", sector: ["salud"], etiqueta: "Fertilidad · Ex-aviación",
+    iniciales: "JS",
+    formacion: "Trayectoria larga en finanzas antes de llegar a la cúpula. Desarrolló su carrera en el grupo constructor Uralita antes de entrar en el mundo aéreo en 2001 (Air Nostrum).",
+    trayectoria: "10 años en el grupo IAG: CFO regional, CFO de Iberia, equipo fundacional de Iberia Express, y CEO de Vueling. CEO y presidente de Iberia desde septiembre de 2020 hasta julio de 2023. Fichó por IVIRMA (gigante español de fertilidad, controlado por KKR) en julio de 2023 como CEO para liderar su expansión internacional. Sin experiencia previa en salud.",
+    empresaDesc: "IVIRMA Global es líder mundial en reproducción asistida: +120 clínicas en 9+ países (20 en EE.UU., 30 en España), +2.000 profesionales, +4.000 publicaciones científicas. KKR la compró en 2023 por 3.000M€. 2/3 de los ingresos vienen de fuera de España.",
+    datos: [["CEO IVIRMA desde", "Jul 2023"],["Compra KKR", "3.000M€"],["Clínicas", "+120"],["Países", "9+"]],
+    hooks: [
+      "<strong>Iñaki Cobo</strong> está en el panel y es el socio de KKR que lo fichó. Conexión directísima.",
+      "<strong>Cambio radical</strong>: pasar de aviación a fertilidad es una transición inusual. \"Decir adiós a Iberia es difícil, pero la vida son ciclos\". Le gusta hablar del salto.",
+      "<strong>EE.UU. es su mercado principal</strong>: 20 clínicas, más que en España. Muy relevante estando en NY.",
+      "<strong>IAG → IVI</strong>: la tesis es la misma — plataforma con red, operaciones complejas y gran escala internacional. Le gusta enmarcarlo así."
+    ]
+  },
+  {
+    id: 16, nombre: "Ginés Navarro Castaño", cargo: "Fundador, Socio y Managing Director",
+    empresa: "Admara Capital", sector: ["inmobiliario"], etiqueta: "Inmobiliario de lujo · Madrid",
+    iniciales: "GN",
+    formacion: "Arquitecto por la ETSAM (UPM) + Executive MBA por IESE (2015-2017).",
+    trayectoria: "Empezó en el programa de graduados de Ferrovial y fue Investment Manager en BAA (aeropuerto de Heathrow). Entre 2013 y 2018 trabajó en Sareb (el \"banco malo\") como Investment Manager y Head of Asset Management de la cartera Work In Progress. Fundó Admara Capital en 2018.",
+    empresaDesc: "Admara Capital es una plataforma de inversión inmobiliaria ibérica. Capital de family offices e inversores nacionales. Alianza estratégica con el grupo mexicano Be Grand para residencial de lujo en Madrid. +100M€ comprometidos en proyectos en los últimos 12 meses. Acuerdo de exclusividad con LaFinca. Proyectos emblemáticos: Canalejas Residences, Chamberí, Las Letras, Argüelles.",
+    datos: [["Fundada", "2018"],["Compromiso reciente", "+100M€"],["Socio estratégico", "Be Grand (México)"],["Exclusividad", "LaFinca"]],
+    hooks: [
+      "<strong>Barrio de las Letras</strong>: nuevo proyecto de 26M€ para 50 viviendas — centro histórico de Madrid. Muy reciente.",
+      "<strong>Sareb</strong>: te puede contar desde dentro la historia del \"banco malo\" español post-2008. Relevante si te interesa el sector financiero ibérico.",
+      "<strong>Chamberí &amp; Trafalgar</strong>: apuesta por ese eje como nuevo epicentro del lujo residencial madrileño. 20 viviendas premium en desarrollo.",
+      "<strong>Arquitecto convertido en inversor</strong>: ángulo inusual — mezcla visión de diseño con underwriting financiero."
+    ]
+  },
+  {
+    id: 17, nombre: "Enrique Ordieres Sagarmínaga", cargo: "Presidente",
+    empresa: "Grupo Cinfa", sector: ["salud"], etiqueta: "Farmacéutica · Navarra",
+    iniciales: "EO",
+    formacion: "Licenciado en Farmacia, MBA y varios postgrados. Fue titular de oficina de farmacia y presidente del Colegio de Farmacéuticos de Bizkaia y del Consejo del País Vasco.",
+    trayectoria: "35+ años en el sector farmacéutico. Ejerció como farmacéutico titular. Entró en el consejo de Cinfa y en 2006 asumió la presidencia — casi 20 años al frente. Ha consolidado a Cinfa como líder del mercado español. En 2025 recibió el XXIII Premio COF Navarra por su trayectoria.",
+    empresaDesc: "Cinfa es el laboratorio farmacéutico español de capital 100% nacional, con sede en Navarra. Fundado en 1969 (56 años), lidera el mercado español en unidades y valores (IQVIA, 2023). +2.200 empleados, 6 plantas en España, 2 centros de I+D, +6.500 presentaciones en mercado. Presencia en +100 países. Plan de inversión 240M€ 2025-2027.",
+    datos: [["Al frente desde", "2006"],["Empleados", "+2.200"],["Presentaciones", "+6.500"],["Plan inversión 25-27", "240M€"]],
+    hooks: [
+      "<strong>Nave Neo (2024)</strong>: nueva instalación de vanguardia en Olloki que puede duplicar la producción. Orgullo reciente.",
+      "<strong>Reinvierten 80% de beneficios</strong>: decisión estratégica consistente — contrastar con los dividendos de cotizadas.",
+      "<strong>Genéricos en España</strong>: pionero en los 90. Más de 1.700M de envases comercializados. Frustrado con la política de precios a la baja sostenida 10 años.",
+      "<strong>Biosimilares</strong>: Cinfa los probó y los vendió — \"era imposible de mantener\". Tema polémico y sincero."
+    ]
+  },
+  {
+    id: 18, nombre: "Jorge Gilabert Hernando", cargo: "Managing Director (Travel, Hospitality &amp; Leisure EMEA)",
+    empresa: "Álvarez &amp; Marsal", sector: ["consultoria", "turismo"], etiqueta: "Consultoría · Turismo",
+    iniciales: "JG",
+    formacion: "Escuela de Organización Industrial (Madrid). Base en Gavà (Barcelona).",
+    trayectoria: "15+ años de consultoría estratégica. Carrera en PwC y luego 12 años como Partner en Monitor Deloitte España, donde dirigió el sector de consumo y servicios y lideró proyectos para hoteles, aerolíneas, moda y retail. Fichó por A&amp;M en noviembre de 2024 como Managing Director y co-lead del Travel, Hospitality &amp; Leisure de EMEA (con Ed Bignold). Ha trabajado estrechamente con Federico J. González durante sus etapas como CEO de NH Hotels, Radisson y Louvre Hotels.",
+    empresaDesc: "Álvarez &amp; Marsal es una consultora global de transformación con ~9.000 empleados. En España cumplió 10 años en 2024 — es la cuarta mayor presencia europea de la firma. Especialidad: turnarounds y resultados accionables.",
+    datos: [["En A&amp;M desde", "Nov 2024"],["Antes en", "Monitor Deloitte (12 años), PwC"],["Co-lead con", "Ed Bignold (Londres)"],["A&amp;M España", "10 años"]],
+    hooks: [
+      "<strong>Future of Travel 2050</strong>: acaba de publicar el estudio con Google en ITB Berlín. \"La dominancia de los Top 5 destinos se acaba\". Tema candente.",
+      "<strong>Eduardo Bosch (Louvre Hotels) está en el panel</strong>: cliente histórico a través de Federico J. González. Conexión directa entre ambos.",
+      "<strong>Agentic AI en travel</strong>: su tesis — \"3.500M de viajes internacionales no se pueden gestionar con procesos manuales\". Tema de plena actualidad en la industria.",
+      "<strong>NH Hotels &amp; Radisson</strong>: entiende el midscale hotelero europeo como pocos. Muy tecnológico y financiero."
+    ]
+  },
+  {
+    id: 19, nombre: "Javier (Javi) Palafox", cargo: "Co-Fundador y COO",
+    empresa: "HappyRobot (YC S23)", sector: ["tecnologia"], etiqueta: "AI agentes · YC · Logística",
+    iniciales: "JP",
+    formacion: "Dos carreras: Derecho y Ciencias. Universidad Carlos III de Madrid. Luego MBA.",
+    trayectoria: "Nacido en Guadalajara, España. Empezó en la Oficina Económica y Comercial de la Embajada de España en México a los 27 años, ayudando a empresas españolas en México. KPMG, y después CFO de la unidad norteamericana de Deoleo (Dallas) — una empresa de consumer packaged goods de 300M$. En 2023 fundó HappyRobot con su hermano Pablo (CEO, PhD en Computer Vision por TU Munich) y Luis Paarup (CTO). YC Summer 2023.",
+    empresaDesc: "HappyRobot construye AI agents para logística (principalmente freight brokers y carriers). Automatizan miles de llamadas diarias. Clientes: Flexport, Schneider, Circle Logistics, Syfan, Job&amp;Talent. Series B de 44M$ en septiembre 2025 liderada por Base10, con participación de a16z y YC. Valoración ~500M$. Revenue &gt;10M$.",
+    datos: [["Fundada", "2023"],["Series B", "44M$ (Sep 2025)"],["Valoración", "~500M$"],["Base", "San Francisco"]],
+    hooks: [
+      "<strong>Vertical AI</strong>: caso paradigmático de la tesis \"vertical AI beats horizontal\" — eligieron logística, dominaron voice, y escalan desde ahí. Referencia obligada para entender cómo se construye en YC hoy.",
+      "<strong>Freight broker</strong>: su punto de entrada al mercado. Clientes que negocian rates, cobertura de carga, seguimiento.",
+      "<strong>Hermanos co-fundadores</strong>: él es el COO (perfil financiero), Pablo es el CEO (técnico). Historia humana fuerte.",
+      "<strong>Base10 Partners</strong>: el VC español Adeyemi Ajao (partner) se cruzó con ellos jugando al fútbol en SF. Story clásica de networking."
+    ]
+  },
+  {
+    id: 20, nombre: "Pablo Nuño", cargo: "Co-Fundador y CEO",
+    empresa: "Manolo Bakes", sector: ["alimentacion"], etiqueta: "Food &amp; Retail · Madrid",
+    iniciales: "PN",
+    formacion: "Formación autodidacta + cursos de gestión. Habla abiertamente de aprender a base de levantar negocios.",
+    trayectoria: "Creció en Colmenar Viejo donde conocía los \"manolitos\" originales de Pastelerías Manolo. En 2017 se asoció con Álvaro Morata y su padre (Crosantino) para abrir tiendas similares. Tras chocar directamente con los Manzano (dueños de Pastelerías Manolo), ambos grupos se fusionaron y crearon Manolo Bakes. En enero de 2024, con apoyo financiero de VGO Capital (valoración ~60M€), Morata y Nuño compraron el 100% de la marca.",
+    empresaDesc: "Manolo Bakes vende +60.000 \"manolitos\" al día. +40 puntos de venta. Facturación ~24M€. Los \"manolitos\" están entre los 5 productos más vendidos en plataformas de delivery en España. Socios: Pablo Nuño, familia Morata, familia Manzano, varios futbolistas.",
+    datos: [["Fundada", "2017"],["Manolitos/día", "+60.000"],["Puntos de venta", "+40"],["Valoración 2024", "~60M€"]],
+    hooks: [
+      "<strong>Álvaro Morata</strong>: el futbolista es socio fundador. Apertura natural (aunque probablemente oirás ese tema 20 veces esa noche).",
+      "<strong>Obrador descentralizado</strong>: su ventaja operativa — pequeños obradores \"lab\" a &lt;1h del punto de venta. Escalabilidad real.",
+      "<strong>Internacionalización</strong>: tenía planes para 2022. Pregúntale cómo va — ¿han llegado a NY?",
+      "<strong>Detalle espinoso</strong>: hubo un reportaje de elDiario.es sobre que algunos manolitos son producto congelado de Europastry. Evita el tema, pero bueno de saber."
+    ]
+  },
+  {
+    id: 21, nombre: "Iñigo Rengifo Meliá", cargo: "Co-Fundador y CEO",
+    empresa: "Concentro", sector: ["tecnologia", "finanzas"], etiqueta: "Clean energy tech · NY",
+    iniciales: "IR",
+    formacion: "Bachelor's y Master's en Ingeniería Electromecánica. MBA por Harvard Business School.",
+    trayectoria: "Empezó como primer empleado de Neboola (startup studio), formando parte del equipo fundacional de Loopas y Bonofit. 3 años en McKinsey (new business building y clean energy). Cofundó Concentro en 2023 con Tao Mantaras, compañero de HBS.",
+    empresaDesc: "Concentro es una plataforma de financiación para clean energy en el mid-market americano. Core: transferencia de tax credits (que la Inflation Reduction Act de 2022 desbloqueó como vía de financiación). Han facilitado +3.000M$ en tax credits, 600+ proyectos financiados, 150+ developers. Seed de 3M$ en diciembre 2024 liderada por firstminute Capital, con Silence VC, LifeX, Plug &amp; Play. Sede en NY.",
+    datos: [["Fundada", "2023"],["Tax credits en plataforma", "+3.000M$"],["Proyectos financiados", "600+"],["Seed (Dic 2024)", "3M$"]],
+    hooks: [
+      "<strong>Harvard &amp; NY</strong>: sede en Nueva York. Perfil muy \"HBS founder\" — contexto ideal para el público MBA del evento.",
+      "<strong>Post-OBBBA</strong>: Trump firmó la \"One, Big, Beautiful Bill Act\" en julio 2025. Está en el ojo del huracán regulatorio. Publicó análisis recientes.",
+      "<strong>HBS + McKinsey</strong>: perfil perfecto para el público MBA. Le apasiona la mecánica emprendedora.",
+      "<strong>Distributed generation</strong>: su nicho — proyectos medianos (no los megaproyectos de utility). \"Middle-market\" de clean energy."
+    ]
+  },
+  {
+    id: 22, nombre: "Eduardo Bosch", cargo: "CEO &amp; COO",
+    empresa: "Louvre Hotels Group", sector: ["turismo"], etiqueta: "Hotelería midscale · París",
+    iniciales: "EB",
+    formacion: "Universidad Politécnica de Madrid. Stanford Graduate School of Business. MIT.",
+    trayectoria: "20+ años en turismo internacional. Pasó por NH Hotel Group y Meliá Hotels International en puestos clave antes de Louvre Hotels. Entró como COO en plena pandemia (~2020), con objetivo de transformación. En julio de 2025 fue promovido a CEO (manteniendo el COO) para acelerar el plan estratégico a 5 años lanzado en 2023.",
+    empresaDesc: "Louvre Hotels Group es el 2º grupo hotelero europeo, propiedad del chino Jin Jiang International (2º grupo mundial). +1.750 hoteles en 70 países. Marcas: Première Classe, Kyriad, Campanile, Golden Tulip, Royal Tulip, Hosho, Sarovar (India), Hôtels &amp; Préférence. Sinergias con Radisson (mismo accionista) — 25M miembros en Radisson Rewards.",
+    datos: [["CEO desde", "Jul 2025"],["Hoteles", "+1.750"],["Países", "70"],["Accionista", "Jin Jiang (China)"]],
+    hooks: [
+      "<strong>\"Ya no somos la bella durmiente\"</strong>: su frase para describir la salida de Louvre del letargo. Relevante para entender su visión.",
+      "<strong>Renovación masiva</strong>: 70 hoteles filiales y 130 franquicias ya renovados. Objetivo 80% a finales de 2026.",
+      "<strong>Jorge Gilabert (A&amp;M)</strong>: también en el panel. Ha trabajado con Federico J. González (el CEO anterior) durante años. Conexión directa.",
+      "<strong>Jin Jiang + Radisson</strong>: competencia interna amistosa entre marcas. Self check-in: Louvre hace mejor que Radisson, según él."
+    ]
+  },
+  {
+    id: 23, nombre: "Tano Santos", cargo: "Robert Heilbrunn Professor of Asset Management and Finance",
+    empresa: "Columbia Business School", sector: ["academia"], etiqueta: "Economía · Columbia",
+    iniciales: "TS",
+    formacion: "Licenciado en Universidad Complutense de Madrid (1990). PhD por University of Chicago (1996). Empezó su carrera académica como Associate Professor en Chicago Booth.",
+    trayectoria: "Catedrático en Columbia Business School desde 2003. Director Académico del Heilbrunn Center for Graham &amp; Dodd Investing. Enseña Value Investing, Modern Value y Modern Political Economy. Miembro del NBER y Fellow del CEPR. Publicado en las principales revistas económicas y financieras. Senior Advisor de First Eagle Investments.",
+    empresaDesc: "Columbia Business School — una de las top 5 del mundo. El Heilbrunn Center es la escuela madre del Value Investing (la tradición Graham &amp; Dodd → Warren Buffett). Tano es una de las voces académicas españolas más respetadas en finanzas y economía.",
+    datos: [["En Columbia desde", "2003"],["Citaciones Google Scholar", "+8.970"],["Antes en", "University of Chicago"],["Consejo", "First Eagle Investments"]],
+    hooks: [
+      "<strong>Voz académica española en EE.UU.</strong>: uno de los economistas españoles más visibles en la academia americana. Referente obligado para cualquier MBA español en NY.",
+      "<strong>\"Burbuja IA\"</strong>: en su keynote reciente en la Fundación Rafael del Pino dijo que si hay burbuja IA, sería \"tremenda\" — combina tecnología, inmobiliaria (data centers), apalancamiento y gobierno.",
+      "<strong>Ibex 35 vs S&amp;P</strong>: su tesis — la diferencia brutal desde 2000 es la incapacidad europea de reinvertir capital. Tema candente.",
+      "<strong>Eurozona</strong>: coautor del paper \"Political Credit Cycles: The Case of the Euro Zone\" con Garicano. Crítico agudo con la arquitectura del euro."
+    ]
+  }
+];
+
+// Render
+const grid = document.getElementById('grid');
+const empty = document.getElementById('empty');
+
+function render(list) {
+  grid.innerHTML = '';
+  if (list.length === 0) { empty.classList.add('show'); return; }
+  empty.classList.remove('show');
+
+  list.forEach(s => {
+    const sectores = Array.isArray(s.sector) ? s.sector.join(' ') : s.sector;
+    const factsHtml = s.datos.map(d => `<div class="fact"><span class="fact-label">${d[0]}</span><span class="fact-value">${d[1]}</span></div>`).join('');
+    const hooksHtml = s.hooks.map(h => `<li>${h}</li>`).join('');
+
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.dataset.sector = sectores;
+    card.dataset.name = (s.nombre + ' ' + s.empresa + ' ' + s.etiqueta).toLowerCase();
+    card.innerHTML = `
+      <div class="card-header">
+        <div class="avatar">${s.iniciales}</div>
+        <div class="card-title">
+          <div class="name">${s.nombre}</div>
+          <div class="role">${s.cargo}, <span class="company">${s.empresa}</span></div>
+          <div class="tag">${s.etiqueta}</div>
+        </div>
+      </div>
+      <div class="details">
+        <div class="details-inner">
+          <div class="section">
+            <div class="section-label">Formación</div>
+            <p>${s.formacion}</p>
+          </div>
+          <div class="section">
+            <div class="section-label">Trayectoria</div>
+            <p>${s.trayectoria}</p>
+          </div>
+          <div class="section">
+            <div class="section-label">La empresa</div>
+            <p>${s.empresaDesc}</p>
+          </div>
+          <div class="section">
+            <div class="section-label">Datos clave</div>
+            <div class="facts">${factsHtml}</div>
+          </div>
+          <div class="section">
+            <div class="section-label">Temas de conversación</div>
+            <ul class="hooks">${hooksHtml}</ul>
+          </div>
+        </div>
+      </div>
+    `;
+    card.querySelector('.card-header').addEventListener('click', () => card.classList.toggle('open'));
+    grid.appendChild(card);
+  });
+}
+
+render(speakers);
+
+// Filter & Search
+let activeFilter = 'all';
+let activeQuery = '';
+
+function applyFilters() {
+  const cards = grid.querySelectorAll('.card');
+  let visible = 0;
+  cards.forEach(c => {
+    const sectorMatch = activeFilter === 'all' || c.dataset.sector.includes(activeFilter);
+    const nameMatch = !activeQuery || c.dataset.name.includes(activeQuery);
+    if (sectorMatch && nameMatch) { c.classList.remove('hidden'); visible++; }
+    else c.classList.add('hidden');
+  });
+  empty.classList.toggle('show', visible === 0);
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    applyFilters();
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  activeQuery = e.target.value.toLowerCase().trim();
+  applyFilters();
+});
+
+// Share
+document.getElementById('shareBtn').addEventListener('click', async () => {
+  const text = document.getElementById('shareText');
+  const data = {
+    title: 'XVII Conferencia MBA España · Ponentes',
+    text: 'Dossier de los 23 ponentes confirmados de la XVII Conferencia MBA España.',
+    url: window.location.href
+  };
+  if (navigator.share) {
+    try { await navigator.share(data); } catch(e) {}
+  } else if (navigator.clipboard) {
+    await navigator.clipboard.writeText(window.location.href);
+    text.textContent = '¡Enlace copiado!';
+    setTimeout(() => text.textContent = 'Compartir', 2000);
+  }
+});
+</script>
+
+</body>
+</html>
